@@ -1,6 +1,14 @@
 import React from "react";
 import NavItems from "./NavItems";
+import { useEffect } from "react";
 export default function Menu({ openMenu, setOpenMenu }) {
+  useEffect(() => {
+    if (openMenu) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [openMenu]);
   return (
     <div
       className={`absolute min-h-screen flex flex-col bg-black inset-0 -inset-x-4 duration-300 ease-in-out ${
